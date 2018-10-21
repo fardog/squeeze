@@ -7,7 +7,7 @@
 #define ROTARY_B A1
 #define ROTARY_MIN 0
 #define ROTARY_MAX 255
-#define TACHOMETER_PIN 3
+#define TACHOMETER_PIN 7
 #define SPEED_PIN 5
 #define MINUTE_MS 60000
 #define DEBOUNCE_MS 1000
