@@ -1,0 +1,3 @@
+[submodule "hardware/shared/arduino-kicad-library"]
+	path = hardware/shared/arduino-kicad-library
+	url = git@github.com:Alarm-Siren/arduino-kicad-library.git
