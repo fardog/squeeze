@@ -1,0 +1,5 @@
+(sym_lib_table
+  (lib (name arduino)(type Legacy)(uri ${KIPRJMOD}/../shared/arduino-kicad-library/arduino.lib)(options "")(descr "Arduino Schemas"))
+  (lib (name squeeze-misc)(type Legacy)(uri ${KIPRJMOD}/../shared/squeeze-misc/squeeze-misc.lib)(options "")(descr ""))
+  (lib (name PJ-028-SMT-TR)(type Legacy)(uri ${KIPRJMOD}/../shared/misc/PJ-028-SMT-TR/PJ-028-SMT-TR.lib)(options "")(descr "CUI Inc. DC Barrel Connector"))
+)
