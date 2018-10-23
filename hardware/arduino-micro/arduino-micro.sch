@@ -112,7 +112,7 @@ U 1 1 5BCCBA37
 P 10300 4700
 F 0 "R3" H 10230 4654 50  0000 R CNN
 F 1 "10k" H 10230 4745 50  0000 R CNN
-F 2 "LED_SMD:LED_0805_2012Metric" V 10230 4700 50  0001 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric" V 10230 4700 50  0001 C CNN
 F 3 "~" H 10300 4700 50  0001 C CNN
 	1    10300 4700
 	-1   0    0    1   
@@ -152,7 +152,7 @@ U 1 1 5BCCD0CA
 P 6100 4300
 F 0 "R1" V 5893 4300 50  0000 C CNN
 F 1 "10k" V 5984 4300 50  0000 C CNN
-F 2 "LED_SMD:LED_0805_2012Metric" V 6030 4300 50  0001 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric" V 6030 4300 50  0001 C CNN
 F 3 "~" H 6100 4300 50  0001 C CNN
 	1    6100 4300
 	0    1    1    0   
@@ -163,7 +163,7 @@ U 1 1 5BCCD17E
 P 6100 4500
 F 0 "R2" V 5893 4500 50  0000 C CNN
 F 1 "10k" V 5984 4500 50  0000 C CNN
-F 2 "LED_SMD:LED_0805_2012Metric" V 6030 4500 50  0001 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric" V 6030 4500 50  0001 C CNN
 F 3 "~" H 6100 4500 50  0001 C CNN
 	1    6100 4500
 	0    1    1    0   
@@ -235,22 +235,12 @@ F 3 "" H 2450 1950 50  0001 C CNN
 	1    2750 1700
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	3200 1950 3400 1950
-Wire Wire Line
-	3200 2050 3400 2050
-Wire Wire Line
-	3200 2150 3400 2150
-Text Label 3400 1950 0    50   ~ 0
+Text Label 4650 1950 0    50   ~ 0
 7S_CLK
-Text Label 3400 2050 0    50   ~ 0
+Text Label 4650 2050 0    50   ~ 0
 7S_IO
-Text Label 3400 2150 0    50   ~ 0
+Text Label 2200 950  2    50   ~ 0
 5V
-Wire Wire Line
-	2300 1750 2100 1750
-Text Label 2100 1750 2    50   ~ 0
-VSS
 Wire Wire Line
 	9450 3950 9550 3950
 Text Label 9550 3950 0    50   ~ 0
@@ -398,4 +388,137 @@ $EndComp
 Wire Wire Line
 	5700 5650 5900 5650
 Connection ~ 5900 5650
+$Comp
+L Device:R R5
+U 1 1 5BD62940
+P 4450 1550
+F 0 "R5" H 4520 1596 50  0000 L CNN
+F 1 "10k" H 4520 1505 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric" V 4380 1550 50  0001 C CNN
+F 3 "~" H 4450 1550 50  0001 C CNN
+	1    4450 1550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R4
+U 1 1 5BD6582F
+P 4150 1550
+F 0 "R4" H 4220 1596 50  0000 L CNN
+F 1 "10k" H 4220 1505 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric" V 4080 1550 50  0001 C CNN
+F 3 "~" H 4150 1550 50  0001 C CNN
+	1    4150 1550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C4
+U 1 1 5BD688AC
+P 3750 1550
+F 0 "C4" H 3865 1596 50  0000 L CNN
+F 1 "100pF" H 3865 1505 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric" H 3788 1400 50  0001 C CNN
+F 3 "~" H 3750 1550 50  0001 C CNN
+	1    3750 1550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3200 1950 3750 1950
+$Comp
+L Device:C C3
+U 1 1 5BD7521D
+P 3450 1550
+F 0 "C3" H 3565 1596 50  0000 L CNN
+F 1 "100pF" H 3565 1505 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric" H 3488 1400 50  0001 C CNN
+F 3 "~" H 3450 1550 50  0001 C CNN
+	1    3450 1550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4150 1700 4150 2050
+Connection ~ 4150 2050
+Wire Wire Line
+	4150 2050 4650 2050
+Wire Wire Line
+	4450 1700 4450 1950
+Connection ~ 4450 1950
+Wire Wire Line
+	4450 1950 4650 1950
+Wire Wire Line
+	3750 1700 3750 1950
+Connection ~ 3750 1950
+Wire Wire Line
+	3750 1950 4450 1950
+$Comp
+L Device:CP C1
+U 1 1 5BD84599
+P 2500 1100
+F 0 "C1" H 2618 1146 50  0000 L CNN
+F 1 "100uF" H 2618 1055 50  0000 L CNN
+F 2 "Capacitor_THT:CP_Radial_Tantal_D4.5mm_P2.50mm" H 2538 950 50  0001 C CNN
+F 3 "~" H 2500 1100 50  0001 C CNN
+	1    2500 1100
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C2
+U 1 1 5BD8E2D1
+P 3000 1100
+F 0 "C2" H 3115 1146 50  0000 L CNN
+F 1 "0.1uF" H 3115 1055 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric" H 3038 950 50  0001 C CNN
+F 3 "~" H 3000 1100 50  0001 C CNN
+	1    3000 1100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2200 950  2500 950 
+Wire Wire Line
+	3000 950  3300 950 
+Wire Wire Line
+	3300 950  3300 2150
+Wire Wire Line
+	3300 2150 3200 2150
+Connection ~ 3000 950 
+Wire Wire Line
+	2300 1250 2300 1750
+Wire Wire Line
+	3200 2050 3450 2050
+Wire Wire Line
+	3450 1700 3450 2050
+Connection ~ 3450 2050
+Wire Wire Line
+	3450 2050 4150 2050
+Wire Wire Line
+	3600 1250 3600 1400
+Wire Wire Line
+	3600 1400 3750 1400
+Wire Wire Line
+	3600 1400 3450 1400
+Connection ~ 3600 1400
+Wire Wire Line
+	3600 1250 3000 1250
+Connection ~ 3000 1250
+Text Label 3750 1250 0    50   ~ 0
+VSS
+Wire Wire Line
+	3600 1250 3750 1250
+Connection ~ 3600 1250
+Connection ~ 2500 950 
+Connection ~ 2500 1250
+Wire Wire Line
+	2500 1250 2300 1250
+Wire Wire Line
+	2500 950  3000 950 
+Wire Wire Line
+	2500 1250 3000 1250
+Wire Wire Line
+	4150 1400 4300 1400
+Wire Wire Line
+	4300 1400 4300 1250
+Connection ~ 4300 1400
+Wire Wire Line
+	4300 1400 4450 1400
+Text Label 4300 1250 0    50   ~ 0
+5V
 $EndSCHEMATC
