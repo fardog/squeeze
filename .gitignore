@@ -59,3 +59,4 @@ dkms.conf
 
 # Unexclude hardware libs
 !/hardware/**/*.lib
+!/hardware/**/*.mod
