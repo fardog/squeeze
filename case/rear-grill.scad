@@ -1,5 +1,5 @@
-include <params.scad>;
-use <lib.scad>;
+include <lib/params.scad>;
+use <lib/utils.scad>;
 
 module insets(r, angle, invert=true) {
     offset = (fan_case - fan_screw_distance) / 2;

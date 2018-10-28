@@ -1,5 +1,5 @@
-include <params.scad>;
-use <lib.scad>;
+include <lib/params.scad>;
+use <lib/utils.scad>;
 
 total_height = front_grill_thickness + filter_thickness;
 
