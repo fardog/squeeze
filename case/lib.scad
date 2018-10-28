@@ -31,3 +31,20 @@ module fan_mount_points(radius, $fn=20) {
             circle(radius, $fn);
     }
 }
+
+module square_grill(width, height, fin_width, fin_spacing) {
+    grill_width = floor(width / fin_spacing) * fin_spacing;
+    grill_offset = width - grill_width;
+    grill_start = grill_offset - fin_width / 2;
+
+    difference() {
+        square(width);
+        union() {
+            for (i = [grill_start:fin_spacing:grill_width]) {
+                translate([i, 0, 0])
+                    square([fin_width, height]);
+            }
+        }
+    }
+}
+

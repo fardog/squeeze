@@ -21,5 +21,7 @@ front_grill_fin_spacing = 20;
 front_grill_fin_thickness = 2;
 
 filter_thickness = 5;
+filter_width = fan_screw_distance - fan_case_screw_radius * 3;
+filter_offset = (fan_case - filter_width) / 2;
 
 tolerance = 0.2;
