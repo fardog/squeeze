@@ -1,27 +1,6 @@
 include <params.scad>;
 use <lib.scad>;
 
-module profile($fn=20) {
-    minkowski() {
-        translate([fan_case_radius, fan_case_radius, 0])
-            square(fan_case - fan_case_radius * 2);
-        circle(fan_case_radius, $fn);
-    }
-}
-
-module screws(radius, $fn=20) {
-    offset = (fan_case - fan_screw_distance) / 2;
-    translate([offset, offset, 0]) {
-        circle(radius, $fn);
-        translate([fan_screw_distance, 0, 0])
-            circle(radius, $fn);
-        translate([fan_screw_distance, fan_screw_distance, 0])
-            circle(radius, $fn);
-        translate([0, fan_screw_distance, 0])
-            circle(radius, $fn);
-    }
-}
-
 module insets(r, angle, invert=true) {
     offset = (fan_case - fan_screw_distance) / 2;
     translate([offset, offset, 0]) {
@@ -67,10 +46,10 @@ difference() {
         }
         translate([0, 0, rear_grill_thickness])
             linear_extrude(height=grill_screw_inset)
-                screws(tol(fan_case_screw_radius));
+                fan_mount_points(tol(fan_case_screw_radius));
     }
     linear_extrude(height=rear_grill_thickness + grill_screw_inset)
-        screws(grill_screw_radius);
+        fan_mount_points(grill_screw_radius);
     insets(fan_case_screw_head_radius, fan_case_screw_head_angle);
 }
 

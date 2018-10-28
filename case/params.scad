@@ -16,4 +16,10 @@ grill_fin_degrees = 30;
 
 rear_grill_thickness = 2;
 
+front_grill_thickness = 2;
+front_grill_fin_spacing = 20;
+front_grill_fin_thickness = 2;
+
+filter_thickness = 5;
+
 tolerance = 0.2;
