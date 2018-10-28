@@ -7,7 +7,7 @@ difference() {
             difference() {
                 profile();
                 translate([filter_offset, filter_offset])
-                    square_grill(filter_width, filter_width, front_grill_fin_thickness, front_grill_fin_spacing);
+                    square_grill(filter_width, filter_width, front_grill_fin_thickness, front_grill_fin_count);
             }
         translate([0, 0, front_grill_thickness])
             linear_extrude(height=grill_screw_inset)

@@ -32,16 +32,13 @@ module fan_mount_points(radius, $fn=20) {
     }
 }
 
-module square_grill(width, height, fin_width, fin_spacing) {
-    grill_width = floor(width / fin_spacing) * fin_spacing;
-    grill_offset = width - grill_width;
-    grill_start = grill_offset - fin_width / 2;
-
+module square_grill(width, height, fin_width, fin_count) {
+    fin_spacing = width / fin_count;
     difference() {
         square(width);
         union() {
-            for (i = [grill_start:fin_spacing:grill_width]) {
-                translate([i, 0, 0])
+            for (i = [0:1:fin_count]) {
+                translate([(i + 1) * fin_spacing - (fin_spacing / 2) - (fin_width / 2), 0, 0])
                     square([fin_width, height]);
             }
         }
