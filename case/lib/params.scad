@@ -27,5 +27,6 @@ filter_offset = (fan_case - filter_width) / 2;
 base_retainer_thickness = 2;
 base_height = 40;
 base_cut_offset = 10;
+base_retainer_inset = 4;
 
 tolerance = 0.2;
