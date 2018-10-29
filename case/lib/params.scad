@@ -25,7 +25,7 @@ filter_width = fan_screw_distance - fan_case_screw_radius * 3;
 filter_offset = (fan_case - filter_width) / 2;
 
 base_retainer_thickness = 2;
-base_height = 40;
+base_height = 30;
 base_cut_offset = 10;
 base_retainer_inset = 4;
 
