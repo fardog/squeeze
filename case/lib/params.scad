@@ -29,4 +29,6 @@ base_height = 30;
 base_cut_offset = 10;
 base_retainer_inset = 4;
 
+adapter_thickness = 2;
+
 tolerance = 0.2;
