@@ -71,8 +71,11 @@ module adapter_profile() {
 base_offset = filter_thickness + (rear_grill_thickness * 2) + tolerance;
 
 difference() {
+    // adapter body
     union() {
+        // adapter base, taper, cylinder
         difference() {
+            // adapter base, taper
             union() {
                 linear_extrude(height=base_offset) {
                     union() {
@@ -86,12 +89,15 @@ difference() {
                     linear_extrude(height=70)
                         duct();
             }
+            // adapter cylinder
             translate([60, 60, 30])
                 linear_extrude(height=70)
-                        circle(d=inch_to_mm(4)-(adapter_thickness*2), $fn=50);
+                    circle(d=inch_to_mm(4)-(adapter_thickness*2), $fn=50);
+            // adapter taper cutout
             translate([0, 0, base_offset])
                 adapter_cut();
         }
+        // adapter taper insets
         intersection() {
             translate([0, 0, base_offset])
                 cone_partial();
@@ -100,11 +106,14 @@ difference() {
                     triangle_insets();
         }
     }
+    // screw cuts
     linear_extrude(height=60)
         fan_mount_points(grill_screw_size/2);
+    // filter cage interface cutouts
     translate([0, 0, base_offset])
         linear_extrude(height=grill_screw_inset)
             fan_mount_points(fan_case_screw_radius);
+    // socket cap screw insets
     translate([0, 0, base_offset + 5])
         linear_extrude(height=100)
             fan_mount_points(5.6/2);
