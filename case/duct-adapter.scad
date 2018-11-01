@@ -34,11 +34,11 @@ module cone_partial(offset_amount=0) {
             scale([0.5, 0.5, 1])
                 linear_extrude(height=30)
                     offset(r=offset_amount)
-                        profile();
+                        adapter_profile();
         translate([0, 0, -1])
             linear_extrude(height=1)
                 offset(r=offset_amount)
-                    profile();
+                    adapter_profile();
     }
 }
 
@@ -56,11 +56,16 @@ module adapter_cut() {
 module base_adapter() {
     union() {
         difference() {
-            profile();
+            adapter_profile();
             offset(r=-adapter_thickness)
-                profile();
+                adapter_profile();
         }
     }
+}
+
+module adapter_profile() {
+    offset(r=adapter_thickness+tolerance)
+        profile();
 }
 
 base_offset = filter_thickness + (rear_grill_thickness * 2) + tolerance;
