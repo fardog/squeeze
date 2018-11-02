@@ -32,7 +32,7 @@ base_retainer_inset = 4;
 
 adapter_thickness = 2;
 adapter_duct_in = 4;
-adapter_height = 30;
+adapter_height = 28;
 adapter_duct_height = 70;
 
 tolerance = 0.2;

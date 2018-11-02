@@ -4,6 +4,9 @@ use <lib/utils.scad>;
 screw_case_offset = (fan_case - fan_screw_distance) / 2 * sqrt(2);
 triangle_side_length = (screw_case_offset + fan_case_socket_cap_radius + adapter_thickness) * sqrt(2);
 
+duct_mm_diameter = inch_to_mm(adapter_duct_in);
+upper_adapter_size = (duct_mm_diameter / sqrt(2)) - adapter_thickness * 2;
+
 module duct($fn=50) {
     amt = fan_case / 2;
     translate([amt, amt, 0])
@@ -33,12 +36,12 @@ module triangle_insets(side_length=triangle_side_length) {
 }
 
 module cone_partial(offset_amount=0) {
-    upper = fan_case / 4;
+    upper = (fan_case + adapter_thickness + tolerance - upper_adapter_size) / 2;
     hull() {
         translate([upper, upper, adapter_height])
-            scale([0.5, 0.5, 1])
-                linear_extrude(height=adapter_height)
-                    offset(r=offset_amount)
+            linear_extrude(height=adapter_height)
+                offset(r=offset_amount)
+                    resize([upper_adapter_size, upper_adapter_size])
                         adapter_profile();
         translate([0, 0, -1])
             linear_extrude(height=1)
