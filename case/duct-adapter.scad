@@ -2,7 +2,7 @@ include <lib/params.scad>;
 use <lib/utils.scad>;
 
 screw_case_offset = (fan_case - fan_screw_distance) / 2 * sqrt(2);
-triangle_side_length = (screw_case_offset * 2 - fan_case_screw_radius) * sqrt(2);
+triangle_side_length = (screw_case_offset + fan_case_socket_cap_radius + adapter_thickness) * sqrt(2);
 
 module duct($fn=50) {
     amt = fan_case / 2;
