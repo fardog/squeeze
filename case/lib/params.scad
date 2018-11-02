@@ -3,6 +3,7 @@ fan_screw_distance = 105;
 fan_case_depth = 25;
 fan_case_radius = 5;
 fan_case_screw_radius = 2.5;
+fan_case_socket_cap_radius = 5.6 / 2;
 fan_case_screw_head_radius = 3;
 fan_case_screw_head_angle = 90;
 
@@ -30,5 +31,8 @@ base_cut_offset = 10;
 base_retainer_inset = 4;
 
 adapter_thickness = 2;
+adapter_duct_in = 4;
+adapter_height = 30;
+adapter_duct_height = 70;
 
 tolerance = 0.2;
