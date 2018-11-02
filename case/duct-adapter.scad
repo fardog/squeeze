@@ -1,6 +1,9 @@
 include <lib/params.scad>;
 use <lib/utils.scad>;
 
+screw_case_offset = (fan_case - fan_screw_distance) / 2 * sqrt(2);
+triangle_side_length = (screw_case_offset * 2 - fan_case_screw_radius) * sqrt(2);
+
 module duct($fn=50) {
     amt = fan_case / 2;
     translate([amt, amt, 0])
@@ -11,7 +14,7 @@ module duct($fn=50) {
         }
 }
 
-module triangle_inset(side_length=30) {
+module triangle_inset(side_length=triangle_side_length) {
     hull() {
         difference() {
             polygon(points=[[0, 0], [0, side_length], [side_length,0]]);
@@ -22,7 +25,7 @@ module triangle_inset(side_length=30) {
     }
 }
 
-module triangle_insets(side_length=30) {
+module triangle_insets(side_length=triangle_side_length) {
     triangle_inset(side_length);
     translate([fan_case, 0, 0]) rotate([0, 0, 90]) triangle_inset(side_length);
     translate([0, fan_case, 0]) rotate([0, 0, 270]) triangle_inset(side_length);
