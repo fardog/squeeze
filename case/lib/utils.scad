@@ -45,3 +45,4 @@ module square_grill(width, height, fin_width, fin_count) {
     }
 }
 
+function inch_to_mm(inches) = inches * 25.4;
