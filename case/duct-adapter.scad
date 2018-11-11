@@ -7,13 +7,15 @@ triangle_side_length = (screw_case_offset + fan_case_socket_cap_radius + adapter
 duct_mm_diameter = inch_to_mm(adapter_duct_in);
 upper_adapter_size = (duct_mm_diameter / sqrt(2)) - adapter_thickness * 2;
 
-module duct($fn=50) {
+$fn=50;
+
+module duct() {
     amt = fan_case / 2;
     translate([amt, amt, 0])
         difference() {
-            circle(d=inch_to_mm(adapter_duct_in), $fn=$fn);
+            circle(d=inch_to_mm(adapter_duct_in));
             offset(r=-adapter_thickness)
-                circle(d=inch_to_mm(adapter_duct_in), $fn=$fn);
+                circle(d=inch_to_mm(adapter_duct_in));
         }
 }
 
@@ -100,7 +102,7 @@ difference() {
             // adapter cylinder
             translate([fan_case / 2, fan_case / 2, adapter_height])
                 linear_extrude(height=adapter_duct_height)
-                    circle(d=inch_to_mm(adapter_duct_in)-(adapter_thickness*2), $fn=50);
+                    circle(d=inch_to_mm(adapter_duct_in)-(adapter_thickness*2));
             // adapter taper cutout
             translate([0, 0, base_offset])
                 adapter_cut();
@@ -125,4 +127,8 @@ difference() {
     translate([0, 0, base_offset + 5])
         linear_extrude(height=adapter_duct_height)
             fan_mount_points(fan_case_socket_cap_radius);
+    // filter insert cut
+    translate([filter_offset, -adapter_thickness-tolerance, front_grill_thickness-tolerance])
+        linear_extrude(height=filter_thickness+tolerance)
+            square([filter_width, adapter_thickness+tolerance]);
 }
