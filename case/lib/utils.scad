@@ -13,6 +13,17 @@ module cone(r, angle, invert=false) {
     }
 }
 
+module roundrect(vect, r, $fn=20) {
+    sq = len(vect) > 1
+        ? [for (i = [0:1:len(vect)-1]) vect[i] - r * 2]
+        : vect - r * 2;
+    minkowski() {
+        square(sq);
+        translate([r, r])
+            circle(r=r);
+    }
+}
+
 module profile($fn=20) {
     minkowski() {
         translate([fan_case_radius, fan_case_radius, 0])

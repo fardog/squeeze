@@ -35,4 +35,14 @@ adapter_duct_in = 4;
 adapter_height = 28;
 adapter_duct_height = 70;
 
+caddy_thickness = 2;
+caddy_handle_width = 20;
+caddy_handle_depth = 10;
+caddy_handle_grip_count = 5;
+caddy_handle_grip_depth = 1;
+caddy_handle_grip_width = 1;
+caddy_clip_height = 2;
+caddy_clip_depth = 6;
+caddy_clip_offset = 1;
+
 tolerance = 0.2;
