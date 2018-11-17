@@ -32,8 +32,11 @@ base_retainer_inset = 4;
 
 adapter_thickness = 2;
 adapter_duct_in = 4;
-adapter_height = 28;
-adapter_duct_height = 70;
+adapter_height = 14;
+adapter_duct_height = 50;
+flat_adapter_duct_height = 50;
+flat_adapter_screw_radius = 2;
+flat_adapter_screw_head_radius = 4;
 
 caddy_thickness = 2;
 caddy_handle_width = 20;
@@ -44,5 +47,14 @@ caddy_handle_grip_width = 1;
 caddy_clip_height = 2;
 caddy_clip_depth = 6;
 caddy_clip_offset = 1;
+
+foot_lower_radius = 15;
+foot_upper_radius = 20;
+foot_height = 18;
+foot_inset_radius = 4;
+foot_inset_depth = 3;
+foot_screw_radius = 4;
+foot_screw_inset = 6;
+foot_screw_head_radius = 8;
 
 tolerance = 0.2;
