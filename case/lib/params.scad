@@ -57,4 +57,15 @@ foot_screw_radius = 4;
 foot_screw_inset = 6;
 foot_screw_head_radius = 8;
 
+power_supply_case_thickness = 3.0;
+power_supply_screw_radius = 1.5;
+power_supply_bushing_radius = 7.5;
+
+power_supply_cable_pass_width = 18;
+power_supply_cable_pass_height = 5;
+power_supply_cable_pass_overhang = 5;
+power_supply_cable_pass_overhang_depth = power_supply_case_thickness;
+power_supply_cable_pass_depth = 3;
+power_supply_cable_pass_thickness = 3;
+
 tolerance = 0.2;
