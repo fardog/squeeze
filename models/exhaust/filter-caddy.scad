@@ -1,5 +1,5 @@
-include <lib/params.scad>;
-use <lib/utils.scad>;
+include <../lib/params.scad>;
+use <../lib/utils.scad>;
 
 caddy_width = filter_width - tolerance;
 caddy_height = filter_thickness - tolerance;

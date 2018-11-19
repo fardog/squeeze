@@ -1,5 +1,5 @@
-include <lib/params.scad>;
-use <lib/utils.scad>;
+include <../lib/params.scad>;
+use <../lib/utils.scad>;
 
 duct_mm_diameter = inch_to_mm(adapter_duct_in);
 upper_adapter_size = (duct_mm_diameter / sqrt(2)) - adapter_thickness * 2;

@@ -1,5 +1,5 @@
-include <lib/params.scad>;
-use <lib/utils.scad>;
+include <../lib/params.scad>;
+use <../lib/utils.scad>;
 
 $fn=50;
 

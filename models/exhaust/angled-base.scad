@@ -1,5 +1,5 @@
-include <lib/params.scad>;
-use <lib/utils.scad>;
+include <../lib/params.scad>;
+use <../lib/utils.scad>;
 
 case_length = fan_case + tolerance + base_retainer_thickness;
 base_cut_angle = atan((base_height - base_cut_offset) / case_length);

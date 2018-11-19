@@ -1,5 +1,5 @@
-include <lib/params.scad>;
-use <lib/utils.scad>;
+include <../lib/params.scad>;
+use <../lib/utils.scad>;
 
 screw_case_offset = (fan_case - fan_screw_distance) / 2 * sqrt(2);
 triangle_side_length = (screw_case_offset + fan_case_socket_cap_radius + adapter_thickness) * sqrt(2);
