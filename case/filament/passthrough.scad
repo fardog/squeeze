@@ -17,7 +17,7 @@ inlet_length = 10;
 inlet_outer_radius = 3;
 inlet_inner_radius = 2;
 
-through_base = "both";
+through_base = "drill_guide";
 
 module through_profile() {
     linear_extrude(through_base_depth)
@@ -84,12 +84,23 @@ module outer() {
                     cylinder(r=case_through_radius,h=through_base_depth+case_thickness);
             }
             left_screw_translate()
-                screw(r=1.5, l=through_base_depth, head=3, cap=3, head_fn=6);
+                screw(r=1.5, l=through_base_depth, head=3.25, cap=3, head_fn=6);
             right_screw_translate()
-                screw(r=1.5, l=through_base_depth, head=3, cap=3, head_fn=6);
+                screw(r=1.5, l=through_base_depth, head=3.25, cap=3, head_fn=6);
             translate([0, 0, -case_thickness])
                 cylinder(d=5, h=through_base_depth + case_thickness);
         }
+    }
+}
+
+module drill_guide() {
+    difference() {
+        through_profile();
+        cylinder(r=1.5, h=through_base_depth);
+        left_screw_translate()
+            cylinder(r=1.5, h=through_base_depth);
+        right_screw_translate()
+            cylinder(r=1.5, h=through_base_depth);
     }
 }
 
@@ -97,6 +108,8 @@ if (through_base == "inner") {
     inner();
 } else if (through_base == "outer") {
     outer();
+} else if (through_base == "drill_guide") {
+    drill_guide();
 } else if (through_base == "both") {
     inner();
     translate([0, 0, -case_thickness])
