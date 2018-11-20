@@ -1,28 +1,7 @@
-include <../lib/params.scad>;
-use <../lib/utils.scad>;
+include <../../lib/params.scad>;
+use <../../lib/utils.scad>;
 
 $fn=50;
-
-through_base_width = 60;
-through_base_height = 20;
-through_base_depth = 5;
-through_base_screw_offset = 10;
-through_base_screw_radius = 1.5;
-through_base_screw_head = 2.8;
-through_base_nut_head = 3.25;
-through_base_nut_inset = 3;
-through_base_screw_inset = 3;
-through_base_fitting_d = 5;
-case_thickness = 1;
-case_through_radius = 6;
-filament_radius = 1;
-
-inlet_length = 10;
-inlet_outer_radius = 3;
-inlet_inner_radius = 2;
-inlet_angle = -20;
-
-through_base = "both";
 
 inlet_pass = inlet_outer_radius*2+filament_radius*2;
 
@@ -137,17 +116,4 @@ module drill_guide() {
         right_screw_translate()
             cylinder(r=through_base_screw_radius, h=through_base_depth);
     }
-}
-
-if (through_base == "inner") {
-    inner();
-} else if (through_base == "outer") {
-    outer();
-} else if (through_base == "drill_guide") {
-    drill_guide();
-} else if (through_base == "both") {
-    inner();
-    translate([0, 0, -case_thickness])
-        rotate([0, 180, 0])
-            outer();
 }
