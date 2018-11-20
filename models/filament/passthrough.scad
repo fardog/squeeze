@@ -9,15 +9,22 @@ through_base_depth = 5;
 through_base_screw_offset = 10;
 through_base_screw_radius = 1.5;
 through_base_screw_head = 2.8;
+through_base_nut_head = 3.25;
+through_base_nut_inset = 3;
 through_base_screw_inset = 3;
+through_base_fitting_d = 5;
 case_thickness = 1;
 case_through_radius = 6;
+filament_radius = 1;
 
 inlet_length = 10;
 inlet_outer_radius = 3;
 inlet_inner_radius = 2;
+inlet_angle = -20;
 
-through_base = "drill_guide";
+through_base = "both";
+
+inlet_pass = inlet_outer_radius*2+filament_radius*2;
 
 module through_profile() {
     linear_extrude(through_base_depth)
@@ -25,28 +32,28 @@ module through_profile() {
 }
 
 module inlet_profile() {
-    translate([0, 1])
+    translate([0, inlet_inner_radius/2])
         intersection() {
             union() {
                 square([inlet_outer_radius, inlet_length]);
-                translate([3, 10])
-                    circle(r=3);
-                translate([2, 0])
-                    circle(r=2);
+                translate([inlet_outer_radius, inlet_length])
+                    circle(r=inlet_outer_radius);
+                translate([inlet_inner_radius, 0])
+                    circle(r=inlet_inner_radius);
             }
-            translate([0, -1])
-                square([3, 15]);
+            translate([0, -inlet_inner_radius/2])
+                square([inlet_outer_radius, inlet_length+inlet_outer_radius+inlet_inner_radius]);
         }
 }
 
 module inlet() {
     difference() {
         rotate_extrude(r=360)
-            translate([1, 0])
-                rotate([0, 0, -20])
+            translate([filament_radius, 0])
+                rotate([0, 0, inlet_angle])
                     inlet_profile();
-        translate([0, 0, -2])
-            cylinder(d=10, h=2);
+        translate([0, 0, -inlet_inner_radius])
+            cylinder(d=inlet_pass*2, h=inlet_inner_radius);
     }
 }
 
@@ -65,11 +72,24 @@ module inner() {
         difference() {
             through_profile();
             left_screw_translate()
-                screw(r=1.5, l=through_base_depth, head=2.8, cap=3);
+                screw(
+                    r=through_base_screw_radius,
+                    l=through_base_depth,
+                    head=through_base_screw_head,
+                    cap=through_base_screw_inset
+                );
             right_screw_translate()
-                screw(r=1.5, l=through_base_depth, head=2.8, cap=3);
+                screw(
+                    r=through_base_screw_radius,
+                    l=through_base_depth,
+                    head=through_base_screw_head,
+                    cap=through_base_screw_inset
+                );
             // inlet cutout
-            cylinder(d=8, h=through_base_depth);
+            cylinder(
+                d=inlet_pass,
+                h=through_base_depth
+            );
         }
         inlet();
     }
@@ -84,11 +104,26 @@ module outer() {
                     cylinder(r=case_through_radius,h=through_base_depth+case_thickness);
             }
             left_screw_translate()
-                screw(r=1.5, l=through_base_depth, head=3.25, cap=3, head_fn=6);
+                screw(
+                    r=through_base_screw_radius,
+                    l=through_base_depth,
+                    head=through_base_nut_head,
+                    cap=through_base_nut_inset,
+                    head_fn=6
+                );
             right_screw_translate()
-                screw(r=1.5, l=through_base_depth, head=3.25, cap=3, head_fn=6);
+                screw(
+                    r=through_base_screw_radius,
+                    l=through_base_depth,
+                    head=through_base_nut_head,
+                    cap=through_base_nut_inset,
+                    head_fn=6
+                );
             translate([0, 0, -case_thickness])
-                cylinder(d=5, h=through_base_depth + case_thickness);
+                cylinder(
+                    d=through_base_fitting_d,
+                    h=through_base_depth + case_thickness
+                );
         }
     }
 }
@@ -96,11 +131,11 @@ module outer() {
 module drill_guide() {
     difference() {
         through_profile();
-        cylinder(r=1.5, h=through_base_depth);
+        cylinder(r=through_base_screw_radius, h=through_base_depth);
         left_screw_translate()
-            cylinder(r=1.5, h=through_base_depth);
+            cylinder(r=through_base_screw_radius, h=through_base_depth);
         right_screw_translate()
-            cylinder(r=1.5, h=through_base_depth);
+            cylinder(r=through_base_screw_radius, h=through_base_depth);
     }
 }
 
