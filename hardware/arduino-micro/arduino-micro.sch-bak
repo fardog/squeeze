@@ -1,6 +1,6 @@
 EESchema Schematic File Version 4
 LIBS:arduino-micro-cache
-EELAYER 30 0
+EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -543,7 +543,7 @@ F 3 "" H 10750 3450 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L arduino-micro-rescue:Arduino_Micro_Socket-arduino XA1
+L arduino:Arduino_Micro_Socket XA1
 U 1 1 5BCC7897
 P 8150 4050
 F 0 "XA1" H 8150 5287 60  0000 C CNN
