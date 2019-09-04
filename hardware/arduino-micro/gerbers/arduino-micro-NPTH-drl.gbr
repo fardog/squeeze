@@ -1,0 +1,30 @@
+%TF.GenerationSoftware,KiCad,Pcbnew,6.0.0-rc1-unknown-3024ded~66~ubuntu18.04.1*%
+%TF.CreationDate,2018-11-05T19:27:32-08:00*%
+%TF.ProjectId,arduino-micro,61726475696E6F2D6D6963726F2E6B69,rev?*%
+%TF.SameCoordinates,PX8c5fca8PY9629108*%
+%TF.FileFunction,NonPlated,1,2,NPTH,Drill*%
+%TF.FilePolarity,Positive*%
+%FSLAX46Y46*%
+G04 Gerber Fmt 4.6, Leading zero omitted, Abs format (unit mm)*
+G04 Created by KiCad (PCBNEW 6.0.0-rc1-unknown-3024ded~66~ubuntu18.04.1) date Mon 05 Nov 2018 07:27:32 PM PST*
+%MOMM*%
+%LPD*%
+G01*
+G04 APERTURE LIST*
+%TA.AperFunction,ComponentDrill*%
+%ADD10C,1.016000*%
+%TD*%
+%TA.AperFunction,ComponentDrill*%
+%ADD11C,1.300000*%
+%TD*%
+G04 APERTURE END LIST*
+D10*
+%TO.C,XA1*%
+X26687000Y18914600D03*
+X26687000Y3674600D03*
+X72407000Y18914600D03*
+X72407000Y3674600D03*
+D11*
+%TO.C,J1*%
+X3457000Y6724600D03*
+M02*

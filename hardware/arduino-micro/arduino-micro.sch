@@ -1,6 +1,6 @@
 EESchema Schematic File Version 4
 LIBS:arduino-micro-cache
-EELAYER 26 0
+EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -14,17 +14,6 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
-$Comp
-L arduino:Arduino_Micro_Socket XA1
-U 1 1 5BCC7897
-P 8150 4050
-F 0 "XA1" H 8150 5287 60  0000 C CNN
-F 1 "Arduino_Micro_Socket" H 8150 5181 60  0000 C CNN
-F 2 "Arduino:Arduino_Micro_Socket" H 9950 7800 60  0001 C CNN
-F 3 "https://store.arduino.cc/arduino-micro" H 9950 7800 60  0001 C CNN
-	1    8150 4050
-	1    0    0    -1  
-$EndComp
 $Comp
 L PJ-028-SMT-TR:PJ-028-SMT-TR J1
 U 1 1 5BCC7D4F
@@ -64,7 +53,7 @@ F 3 "" H 5900 5650 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L Motor:Fan_4pin M1
+L arduino-micro-rescue:Fan_4pin-Motor M1
 U 1 1 5BCC886A
 P 10450 5300
 F 0 "M1" H 10608 5396 50  0000 L CNN
@@ -107,12 +96,12 @@ Wire Wire Line
 Wire Wire Line
 	10050 3250 9450 3250
 $Comp
-L Device:R R3
+L arduino-micro-rescue:R-Device R3
 U 1 1 5BCCBA37
 P 10300 4700
 F 0 "R3" H 10230 4654 50  0000 R CNN
 F 1 "10k" H 10230 4745 50  0000 R CNN
-F 2 "Resistor_SMD:R_0805_2012Metric" V 10230 4700 50  0001 C CNN
+F 2 "coddingtonbear:0805_Milling" V 10230 4700 50  0001 C CNN
 F 3 "~" H 10300 4700 50  0001 C CNN
 	1    10300 4700
 	-1   0    0    1   
@@ -127,7 +116,7 @@ Connection ~ 10300 5000
 Wire Wire Line
 	10300 5000 9650 5000
 $Comp
-L Device:Rotary_Encoder SW1
+L arduino-micro-rescue:Rotary_Encoder-Device SW1
 U 1 1 5BCCC134
 P 5250 4050
 F 0 "SW1" H 5195 3683 50  0000 C CNN
@@ -147,23 +136,23 @@ Wire Wire Line
 Wire Wire Line
 	6450 4250 6850 4250
 $Comp
-L Device:R R1
+L arduino-micro-rescue:R-Device R1
 U 1 1 5BCCD0CA
 P 6100 4300
 F 0 "R1" V 5893 4300 50  0000 C CNN
 F 1 "10k" V 5984 4300 50  0000 C CNN
-F 2 "Resistor_SMD:R_0805_2012Metric" V 6030 4300 50  0001 C CNN
+F 2 "coddingtonbear:0805_Milling" V 6030 4300 50  0001 C CNN
 F 3 "~" H 6100 4300 50  0001 C CNN
 	1    6100 4300
 	0    1    1    0   
 $EndComp
 $Comp
-L Device:R R2
+L arduino-micro-rescue:R-Device R2
 U 1 1 5BCCD17E
 P 6100 4500
 F 0 "R2" V 5893 4500 50  0000 C CNN
 F 1 "10k" V 5984 4500 50  0000 C CNN
-F 2 "Resistor_SMD:R_0805_2012Metric" V 6030 4500 50  0001 C CNN
+F 2 "coddingtonbear:0805_Milling" V 6030 4500 50  0001 C CNN
 F 3 "~" H 6100 4500 50  0001 C CNN
 	1    6100 4500
 	0    1    1    0   
@@ -219,11 +208,6 @@ Text Label 7550 5350 0    50   ~ 0
 VSS
 Text Label 6350 4850 0    50   ~ 0
 5V
-Wire Wire Line
-	10150 4400 10150 3450
-Wire Wire Line
-	10150 3450 9450 3450
-Connection ~ 10150 4400
 $Comp
 L squeeze-misc:TM1637 U1
 U 1 1 5BCD732C
@@ -241,16 +225,12 @@ Text Label 4650 2050 0    50   ~ 0
 7S_IO
 Text Label 2200 950  2    50   ~ 0
 5V
-Wire Wire Line
-	9450 3950 9550 3950
-Text Label 9550 3950 0    50   ~ 0
+Text Label 9450 4450 0    50   ~ 0
 7S_CLK
-Wire Wire Line
-	9450 4050 9550 4050
-Text Label 9550 4050 0    50   ~ 0
+Text Label 9450 4350 0    50   ~ 0
 7S_IO
 $Comp
-L Display_Character:CA56-12CGKWA U2
+L arduino-micro-rescue:CA56-12CGKWA-Display_Character U2
 U 1 1 5BCDF577
 P 2850 3700
 F 0 "U2" H 2850 4367 50  0000 C CNN
@@ -353,8 +333,6 @@ NoConn ~ 9450 3650
 NoConn ~ 9450 3750
 NoConn ~ 9450 3850
 NoConn ~ 9450 4250
-NoConn ~ 9450 4350
-NoConn ~ 9450 4450
 NoConn ~ 9450 4550
 NoConn ~ 9450 4750
 NoConn ~ 9450 4850
@@ -389,34 +367,34 @@ Wire Wire Line
 	5700 5650 5900 5650
 Connection ~ 5900 5650
 $Comp
-L Device:R R5
+L arduino-micro-rescue:R-Device R5
 U 1 1 5BD62940
 P 4450 1550
 F 0 "R5" H 4520 1596 50  0000 L CNN
 F 1 "10k" H 4520 1505 50  0000 L CNN
-F 2 "Resistor_SMD:R_0805_2012Metric" V 4380 1550 50  0001 C CNN
+F 2 "coddingtonbear:0805_Milling" V 4380 1550 50  0001 C CNN
 F 3 "~" H 4450 1550 50  0001 C CNN
 	1    4450 1550
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:R R4
+L arduino-micro-rescue:R-Device R4
 U 1 1 5BD6582F
 P 4150 1550
 F 0 "R4" H 4220 1596 50  0000 L CNN
 F 1 "10k" H 4220 1505 50  0000 L CNN
-F 2 "Resistor_SMD:R_0805_2012Metric" V 4080 1550 50  0001 C CNN
+F 2 "coddingtonbear:0805_Milling" V 4080 1550 50  0001 C CNN
 F 3 "~" H 4150 1550 50  0001 C CNN
 	1    4150 1550
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:C C4
+L arduino-micro-rescue:C-Device C4
 U 1 1 5BD688AC
 P 3750 1550
 F 0 "C4" H 3865 1596 50  0000 L CNN
 F 1 "100pF" H 3865 1505 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric" H 3788 1400 50  0001 C CNN
+F 2 "coddingtonbear:0805_Milling" H 3788 1400 50  0001 C CNN
 F 3 "~" H 3750 1550 50  0001 C CNN
 	1    3750 1550
 	1    0    0    -1  
@@ -424,12 +402,12 @@ $EndComp
 Wire Wire Line
 	3200 1950 3750 1950
 $Comp
-L Device:C C3
+L arduino-micro-rescue:C-Device C3
 U 1 1 5BD7521D
 P 3450 1550
 F 0 "C3" H 3565 1596 50  0000 L CNN
 F 1 "100pF" H 3565 1505 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric" H 3488 1400 50  0001 C CNN
+F 2 "coddingtonbear:0805_Milling" H 3488 1400 50  0001 C CNN
 F 3 "~" H 3450 1550 50  0001 C CNN
 	1    3450 1550
 	1    0    0    -1  
@@ -450,23 +428,23 @@ Connection ~ 3750 1950
 Wire Wire Line
 	3750 1950 4450 1950
 $Comp
-L Device:CP C1
+L arduino-micro-rescue:CP-Device C1
 U 1 1 5BD84599
 P 2500 1100
 F 0 "C1" H 2618 1146 50  0000 L CNN
 F 1 "100uF" H 2618 1055 50  0000 L CNN
-F 2 "Capacitor_THT:CP_Radial_Tantal_D4.5mm_P2.50mm" H 2538 950 50  0001 C CNN
+F 2 "Capacitors_THT:CP_Radial_D6.3mm_P2.50mm" H 2538 950 50  0001 C CNN
 F 3 "~" H 2500 1100 50  0001 C CNN
 	1    2500 1100
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:C C2
+L arduino-micro-rescue:C-Device C2
 U 1 1 5BD8E2D1
 P 3000 1100
 F 0 "C2" H 3115 1146 50  0000 L CNN
 F 1 "0.1uF" H 3115 1055 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric" H 3038 950 50  0001 C CNN
+F 2 "coddingtonbear:0805_Milling" H 3038 950 50  0001 C CNN
 F 3 "~" H 3000 1100 50  0001 C CNN
 	1    3000 1100
 	1    0    0    -1  
@@ -521,4 +499,60 @@ Wire Wire Line
 	4300 1400 4450 1400
 Text Label 4300 1250 0    50   ~ 0
 5V
+$Comp
+L pspice:R R6
+U 1 1 5BE18F60
+P 10150 3850
+F 0 "R6" H 10218 3896 50  0000 L CNN
+F 1 "27k" H 10218 3805 50  0000 L CNN
+F 2 "coddingtonbear:0805_Milling" H 10150 3850 50  0001 C CNN
+F 3 "~" H 10150 3850 50  0001 C CNN
+	1    10150 3850
+	1    0    0    -1  
+$EndComp
+$Comp
+L pspice:R R7
+U 1 1 5BE18FDD
+P 10500 3450
+F 0 "R7" V 10295 3450 50  0000 C CNN
+F 1 "10k" V 10386 3450 50  0000 C CNN
+F 2 "coddingtonbear:0805_Milling" H 10500 3450 50  0001 C CNN
+F 3 "~" H 10500 3450 50  0001 C CNN
+	1    10500 3450
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	10150 4400 10150 4100
+Connection ~ 10150 4400
+Wire Wire Line
+	10150 3600 10150 3450
+Wire Wire Line
+	10150 3450 9450 3450
+Wire Wire Line
+	10250 3450 10150 3450
+Connection ~ 10150 3450
+$Comp
+L power:GND #PWR0103
+U 1 1 5BE2E5E8
+P 10750 3450
+F 0 "#PWR0103" H 10750 3200 50  0001 C CNN
+F 1 "GND" H 10755 3277 50  0000 C CNN
+F 2 "" H 10750 3450 50  0001 C CNN
+F 3 "" H 10750 3450 50  0001 C CNN
+	1    10750 3450
+	1    0    0    -1  
+$EndComp
+$Comp
+L arduino-micro-rescue:Arduino_Micro_Socket-arduino XA1
+U 1 1 5BCC7897
+P 8150 4050
+F 0 "XA1" H 8150 5287 60  0000 C CNN
+F 1 "Arduino_Micro_Socket" H 8150 5181 60  0000 C CNN
+F 2 "Arduino:Arduino_Micro_Socket" H 9950 7800 60  0001 C CNN
+F 3 "https://store.arduino.cc/arduino-micro" H 9950 7800 60  0001 C CNN
+	1    8150 4050
+	1    0    0    -1  
+$EndComp
+NoConn ~ 9450 3950
+NoConn ~ 9450 4050
 $EndSCHEMATC
