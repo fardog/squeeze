@@ -687,79 +687,10 @@ F 5 "Manufacturer Recommendations" H 5150 5350 50  0001 L BNN "Field5"
 $EndComp
 Wire Wire Line
 	5450 5350 6100 5350
-$Comp
-L squeeze-misc:i2c_header J2
-U 1 1 5D98494F
-P 5550 2900
-F 0 "J2" H 5468 2475 50  0000 C CNN
-F 1 "i2c_header" H 5468 2566 50  0000 C CNN
-F 2 "Connector_Molex:Molex_KK-254_AE-6410-04A_1x04_P2.54mm_Vertical" H 5550 2900 50  0001 C CNN
-F 3 "~" H 5550 2900 50  0001 C CNN
-	1    5550 2900
-	-1   0    0    1   
-$EndComp
-$Comp
-L Device:R R11
-U 1 1 5D9ACDB5
-P 5700 3300
-F 0 "R11" H 5770 3346 50  0000 L CNN
-F 1 "14k" H 5770 3255 50  0000 L CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 5630 3300 50  0001 C CNN
-F 3 "~" H 5700 3300 50  0001 C CNN
-	1    5700 3300
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R R12
-U 1 1 5D9AD57E
-P 6000 3300
-F 0 "R12" H 6070 3346 50  0000 L CNN
-F 1 "10k" H 6070 3255 50  0000 L CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 5930 3300 50  0001 C CNN
-F 3 "~" H 6000 3300 50  0001 C CNN
-	1    6000 3300
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	5450 5250 5900 5250
 Wire Wire Line
-	5700 3150 5850 3150
-Wire Wire Line
-	5850 3150 5850 2900
-Wire Wire Line
 	5850 2900 5750 2900
-Connection ~ 5850 3150
-Wire Wire Line
-	5850 3150 6000 3150
-$Comp
-L power:VCC #PWR03
-U 1 1 5D9DDFA4
-P 5700 3450
-F 0 "#PWR03" H 5700 3300 50  0001 C CNN
-F 1 "VCC" H 5718 3623 50  0000 C CNN
-F 2 "" H 5700 3450 50  0001 C CNN
-F 3 "" H 5700 3450 50  0001 C CNN
-	1    5700 3450
-	-1   0    0    1   
-$EndComp
-$Comp
-L power:VSS #PWR04
-U 1 1 5D9DE85E
-P 6350 3450
-F 0 "#PWR04" H 6350 3300 50  0001 C CNN
-F 1 "VSS" H 6368 3623 50  0000 C CNN
-F 2 "" H 6350 3450 50  0001 C CNN
-F 3 "" H 6350 3450 50  0001 C CNN
-	1    6350 3450
-	-1   0    0    1   
-$EndComp
-Wire Wire Line
-	6350 3450 6000 3450
-Wire Wire Line
-	6350 3450 6350 3000
-Wire Wire Line
-	6350 3000 5750 3000
-Connection ~ 6350 3450
 Wire Wire Line
 	5750 2800 6550 2800
 Wire Wire Line
@@ -772,4 +703,21 @@ Wire Wire Line
 	6500 2700 6500 3550
 Wire Wire Line
 	6500 3550 6850 3550
+Text Label 5850 2900 0    50   ~ 0
+5V
+Text Label 5850 3000 0    50   ~ 0
+VSS
+$Comp
+L squeeze-misc:i2c_header J2
+U 1 1 5D98494F
+P 5550 2900
+F 0 "J2" H 5468 2475 50  0000 C CNN
+F 1 "i2c_header" H 5468 2566 50  0000 C CNN
+F 2 "Connector_Molex:Molex_KK-254_AE-6410-04A_1x04_P2.54mm_Vertical" H 5550 2900 50  0001 C CNN
+F 3 "~" H 5550 2900 50  0001 C CNN
+	1    5550 2900
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	5750 3000 5850 3000
 $EndSCHEMATC
