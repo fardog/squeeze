@@ -1,5 +1,7 @@
 (fp_lib_table
   (lib (name Arduino)(type KiCad)(uri ${KIPRJMOD}/../shared/arduino-kicad-library/Arduino.pretty)(options "")(descr "Arduino Footprints"))
   (lib (name PJ-028-SMT-TR)(type Legacy)(uri ${KIPRJMOD}/../shared/misc/PJ-028-SMT-TR/PJ-028-SMT-TR.mod)(options "")(descr "CUI Inc. DC Barrel Connector"))
-  (lib (name coddingtonbear)(type KiCad)(uri /home/cosmo/Documents/Projects/coddingtonbear-kicad-lib/coddingtonbear.pretty)(options "")(descr ""))
+  (lib (name squeeze-misc)(type KiCad)(uri ${KIPRJMOD}/../shared/squeeze-misc/squeeze-misc.pretty)(options "")(descr ""))
+  (lib (name PJ-083H)(type Legacy)(uri ${KIPRJMOD}/../shared/misc/PJ-083H/PJ-083H.mod)(options "")(descr ""))
+  (lib (name PJ-088CH)(type Legacy)(uri ${KIPRJMOD}/../shared/misc/PJ-088CH/PJ-088CH.mod)(options "")(descr ""))
 )
