@@ -48,7 +48,7 @@ base_retainer_inset = 4;
  * Fan to duct adapter
  */
 adapter_thickness = 2;
-adapter_duct_in = 4;
+adapter_duct_in = 3.8;
 adapter_height = 14;
 adapter_duct_height = 50;
 flat_adapter_duct_height = 50;

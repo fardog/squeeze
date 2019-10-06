@@ -37,20 +37,20 @@ module profile($fn=20) {
     minkowski() {
         translate([fan_case_radius, fan_case_radius, 0])
             square(fan_case - fan_case_radius * 2);
-        circle(fan_case_radius, $fn);
+        circle(fan_case_radius, $fn=$fn);
     }
 }
 
 module fan_mount_points(radius, $fn=20) {
     offset = (fan_case - fan_screw_distance) / 2;
     translate([offset, offset, 0]) {
-        circle(radius, $fn);
+        circle(radius, $fn=$fn);
         translate([fan_screw_distance, 0, 0])
-            circle(radius, $fn);
+            circle(radius, $fn=$fn);
         translate([fan_screw_distance, fan_screw_distance, 0])
-            circle(radius, $fn);
+            circle(radius, $fn=$fn);
         translate([0, fan_screw_distance, 0])
-            circle(radius, $fn);
+            circle(radius, $fn=$fn);
     }
 }
 
