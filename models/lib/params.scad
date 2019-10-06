@@ -98,6 +98,19 @@ power_supply_cable_pass_overhang_depth = power_supply_case_thickness;
 power_supply_cable_pass_depth = 3;
 power_supply_cable_pass_thickness = 3;
 
+/**
+ * LED strip holder
+ */
+led_strip_cutout = 0.2;
+led_strip_depth = 4;
+led_strip_width = 8;
+led_strip_screw_offset = 1.5;
+led_strip_screw_radius = 1.5;
+led_strip_screw_head = 2.8;
+led_strip_nut_head = 3.25;
+led_strip_nut_inset = 3;
+led_strip_screw_inset = 3;
+
 /**************/
 /** Filament **/
 /**************/
@@ -133,4 +146,4 @@ inlet_angle = -20;
 // together; adjust to the tolerances of your printer. 0.2 works fine for
 // a Prusa i3 MK3.
 tolerance = 0.2;
-
+layer_height = 0.2;

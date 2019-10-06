@@ -13,14 +13,23 @@ module cone(r, angle, invert=false) {
     }
 }
 
-module roundrect(vect, r, $fn=20) {
+module roundrect(vect, r, center=false, $fn=20) {
     sq = len(vect) > 1
         ? [for (i = [0:1:len(vect)-1]) vect[i] - r * 2]
         : vect - r * 2;
-    minkowski() {
-        square(sq);
-        translate([r, r])
-            circle(r=r);
+    if (center) {
+        translate([-(sq[0]+r*2)/2,-(sq[1]+r*2)/2])
+        minkowski() {
+            square(sq);
+            translate([r, r])
+                circle(r=r);
+        }
+    } else {
+        minkowski() {
+            square(sq);
+            translate([r, r])
+                circle(r=r);
+        }
     }
 }
 
@@ -84,9 +93,17 @@ module screw(r, d, l, head, head_d, cap, angle, fn=20, head_fn) {
         linear_extrude(l)
             circle(r=radius, $fn=fn);
         if (cap > 0) {
-            translate([0, 0, l - cap])
-                linear_extrude(cap)
-                    circle(r=head_r, $fn=hfn);
+            union() {
+                translate([0, 0, l - cap])
+                    linear_extrude(cap)
+                        circle(r=head_r, $fn=hfn);
+                translate([0, 0, l - cap - layer_height])
+                    linear_extrude(layer_height)
+                        square([radius * 2, head_r*2], center=true);
+                translate([0, 0, l - cap - layer_height*2])
+                    linear_extrude(layer_height)
+                        square([radius * 2, radius*2], center=true);
+            }
         }
     }
 }
