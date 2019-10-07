@@ -49,8 +49,9 @@ base_retainer_inset = 4;
  */
 adapter_thickness = 2;
 adapter_duct_in = 3.8;
-adapter_height = 14;
-adapter_duct_height = 50;
+adapter_height = 25;
+adapter_duct_height = 65;
+flat_adapter_height = 14;
 flat_adapter_duct_height = 50;
 flat_adapter_screw_radius = 2;
 flat_adapter_screw_head_radius = 4;

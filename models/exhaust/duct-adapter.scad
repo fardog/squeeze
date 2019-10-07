@@ -38,7 +38,7 @@ module triangle_insets(side_length=triangle_side_length) {
 }
 
 module cone_partial(offset_amount=0) {
-    upper = (fan_case + adapter_thickness + tolerance - upper_adapter_size) / 2;
+    upper = (fan_case + adapter_thickness - upper_adapter_size) / 2;
     hull() {
         translate([upper, upper, adapter_height])
             linear_extrude(height=adapter_height)
@@ -74,11 +74,11 @@ module base_adapter() {
 }
 
 module adapter_profile() {
-    offset(r=adapter_thickness+tolerance)
+    offset(r=adapter_thickness)
         profile();
 }
 
-base_offset = filter_thickness + (rear_grill_thickness * 2) + tolerance;
+base_offset = filter_thickness + (rear_grill_thickness * 2);
 
 difference() {
     // adapter body
@@ -112,33 +112,23 @@ difference() {
             translate([0, 0, base_offset])
                 cone_partial();
             translate([0, 0, base_offset])
-                // hacky; the offset(1) is to make things fit without a rebuild
                 linear_extrude(height=adapter_duct_height)
-                    offset(1) triangle_insets();
+                    triangle_insets();
         }
         // base taper insets
         intersection() {
-            // hacky; the offset(1) is to make things fit without a rebuild
             linear_extrude(height=adapter_duct_height)
-                offset(1) triangle_insets();
+                triangle_insets();
             linear_extrude(height=base_offset) 
-                offset(1) profile();
+                profile();
         }
 
     }
     // screw cuts
     linear_extrude(height=adapter_duct_height)
         fan_mount_points(grill_screw_size/2);
-    // filter cage interface cutouts
-    // translate([0, 0, base_offset])
-    //     linear_extrude(height=grill_screw_inset)
-    //         fan_mount_points(fan_case_screw_radius);
     // socket cap screw insets
     translate([0, 0, base_offset + 5])
         linear_extrude(height=adapter_duct_height)
             fan_mount_points(fan_case_socket_cap_radius);
-    // filter insert cut
-    // translate([filter_offset, -adapter_thickness-tolerance, front_grill_thickness-tolerance])
-    //     linear_extrude(height=filter_thickness+tolerance)
-    //         square([filter_width, adapter_thickness+tolerance]);
 }
